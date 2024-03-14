@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="/static/assets/css/styles.css">
+
+</head>
+
+<body>
+    
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <img src="{{ url_for('static', filename='assets/img/lekha.svg') }}" class="img-fluid"
+            style="max-width: 150px; height: auto; margin-top: 5px;" alt="Lekha">
+        </div>
+    </div>
+
+    <div id="beta"><p id="beta-text">Beta</p></div>
+
+    <div class="container"
+        style="display: flex; flex-direction: column; align-items: center; margin-top: 50px;">
+        <form id="textForm" action="/generate" method="post">
+            <div class="row" style="display: flex; justify-content: center;">
+                <div class="col-6 d-flex justify-content-center align-items-center">
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-info dropdown-toggle" data-bs-toggle="dropdown"
+                            aria-expanded="false" id="selected_font">
+                            Select Font
+                        </button>
+                        <input type="hidden" name="font" id="selected_font_hidden">
+                        <ul class="dropdown-menu">
+                            <!-- Font options will be dynamically added here -->
+                            <li><a class="dropdown-item" style="font-family: AMS_Aaditya;" href="#">AMS_Aaditya</a>
+                            </li>
+                            <li><a class="dropdown-item" style="font-family: AMS_Aakash;" href="#">AMS_Aakash</a>
+                            </li>
+                            <li><a class="dropdown-item" style="font-family: AMS_Anaram;" href="#">AMS_Anaram</a>
+                            </li>
+                            <li><a class="dropdown-item" style="font-family: AMS_Chhatrapati;"
+                                    href="#">AMS_Chhatrapati</a></li>
+                            <li><a class="dropdown-item" style="font-family: AMS_Kangna;" href="#">AMS_Kangna</a>
+                            </li>
+                            <li><a class="dropdown-item" style="font-family: AMS_Kesri;" href="#">AMS_Kesri</a>
+                            </li>
+                            <li><a class="dropdown-item" style="font-family: AMS_Khadu;" href="#">AMS_Khadu</a>
+                            </li>
+                            <li><a class="dropdown-item" style="font-family: AMS_MahaBharat;"
+                                    href="#">AMS_MahaBharat</a></li>
+                            <li><a class="dropdown-item" style="font-family: barakhadi;" href="#">barakhadi</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-6 d-flex justify-content-center align-items-center">
+                    <label for="colorpicker" style="white-space: nowrap; margin: 10px;"> Select Color:</label>
+                    <input type="color" id="colorpicker" name="color" style="width:40px;">
+                </div>
+            </div>
+
+            <div class="row" style="margin-top: 20px;">
+                <div class="modern-box" style="margin: auto; height: 100px;">
+                    <input type="text" id="invisible-input" class="invisible-input" name="text" placeholder="Select Font">
+
+                </div>
+                <div class="message" id="message" style="text-align: center;"></div>
+            </div>
+            <div class="keyboard-container" style="margin-top: 20px;"></div>
+
+            <!-- Centered submit button container -->
+            <div class="submit-btn-container">
+                <button type="button" class="btn btn-primary" onclick="downloadImage()">Download PNG</button>
+            </div>
+ 
+        </form>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+    <!-- Your JavaScript code -->
+    <script src="/static/assets/js/main.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script src="{{ url_for('static', filename='assets/js/script.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/main.js') }}"></script>
+</body>
+
+</html>
